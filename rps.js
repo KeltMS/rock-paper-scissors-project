@@ -1,8 +1,7 @@
 console.log("Hello World");
 
-var playerScore;
-var ComputerScore;
-var tryAgainString = "";
+var playerScore = 0;
+var computerScore =0;
 
 
 
@@ -38,10 +37,15 @@ function PlayGame()
         {
             let humanChoiceString = DeterminChoice(humanChoice);
             console.log("Your choice: " + humanChoiceString);
+
             let computerChoiceString = DeterminChoice(computerChoice);
             console.log("Computer choice: " +computerChoiceString);
+
             let outcome = DeterminWinner(humanChoice, computerChoice)
             console.log(outcome);
+
+            console.log("Your Score : " + playerScore);
+            console.log("Computers Score: " + computerScore);
         }
 
         function DeterminChoice(choice)
@@ -63,15 +67,26 @@ function PlayGame()
             }
             else if(humanChoice + 1 === computerChoice)
             {
+                playerScore++;
                 return "You Win";
+
             }
             else if(humanChoice - 1 === computerChoice)
             {
+                computerScore++;
                 return "You Lose";
+
             }
             else if (humanChoice === 2)
             {
+                playerScore++;
                 return "You Win";
+
+            }
+            else if(humanChoice === 0)
+            {
+                computerScore++;
+                return "You Lose";
             }
 
             
@@ -87,5 +102,5 @@ function PlayGame()
     }
 }
 
-PlayGame(playerScore, ComputerScore);
+PlayGame(playerScore, computerScore);
 
